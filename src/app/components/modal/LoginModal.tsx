@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { signIn } from 'next-auth/react'
 import axios from 'axios'
 import { AiFillGithub } from 'react-icons/ai'
@@ -14,12 +14,15 @@ import { toast } from 'react-hot-toast'
 import Button from '../Button'
 import useLoginModal from '@/app/hook/useLoginModal'
 import { useRouter } from 'next/navigation'
+import RegisterModal from './RegisterModal'
+import useRegisterModal from '@/app/hook/useRegisterModal'
 
 const LoginModal = () => {
   const [isLoading, setIsLoading] = useState(false)
 
   const router = useRouter()
   const loginModal = useLoginModal()
+  const registerModal = useRegisterModal()
 
   const { 
     register, 
@@ -58,6 +61,11 @@ const LoginModal = () => {
     setIsLoading(false)
 
   }
+
+  const toggle = useCallback(() => {
+    loginModal.onClose()
+    registerModal.onOpen()
+  }, [loginModal, registerModal])
 
   const bodyContent = (
     <div className='flex flex-col gap-4'>
@@ -105,12 +113,12 @@ const LoginModal = () => {
           font-light
         "
       >
-        <p>Already have an account?
+        <p>First time using airbnb?
           <span 
-            onClick={loginModal.onClose} 
-            className="text-neutral-800 cursor-pointer  hover:underline ml-1"
+            onClick={toggle} 
+            className="text-neutral-900 font-semibold cursor-pointer  hover:underline ml-2"
           > 
-            Log in
+            Create an account
           </span>
         </p>
       </div>
