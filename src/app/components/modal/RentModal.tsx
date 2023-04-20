@@ -233,7 +233,7 @@ const RentModal = () => {
           disabled={isLoading}
           register={register}
           errors={errors}
-          required
+          // required
         />
         <hr />
         <Input
@@ -242,7 +242,7 @@ const RentModal = () => {
           disabled={isLoading}
           register={register}
           errors={errors}
-          required
+          // required
         />
       </div>
     )
