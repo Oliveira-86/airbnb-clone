@@ -38,7 +38,6 @@ const LoginModal = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true)
-    console.log("aqui")
 
     try {
       const response = await signIn('credentials', { ...data, redirect: false })

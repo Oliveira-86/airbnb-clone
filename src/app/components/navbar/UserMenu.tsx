@@ -10,6 +10,7 @@ import { AiOutlineMenu } from 'react-icons/ai'
 import Avatar from '../Avatar'
 import MenuItem from './MenuItem'
 import RentModal from '../modal/RentModal'
+import { useRouter } from 'next/navigation'
 
 interface UserMenuProps {
   currentUser?: SafeUser | null
@@ -19,6 +20,7 @@ const UserMenu: FC<UserMenuProps> = ({ currentUser }) => {
   const [isOpen, setIsOpen] = useState(false)
   
   const registerModal = useRegisterModal()
+  const router = useRouter()
   const loginModal = useLoginModal()
   const rentModal = useRentModal()
 
@@ -61,7 +63,7 @@ const UserMenu: FC<UserMenuProps> = ({ currentUser }) => {
               <>  
                 <MenuItem 
                   label='My trips'
-                  onClick={() => {}}
+                  onClick={() => router.push('/trips')}
                 />
                 <MenuItem 
                   label='My favorites'
