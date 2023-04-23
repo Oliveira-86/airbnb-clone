@@ -1,12 +1,12 @@
 import Container from "@/app/components/Container";
 import ListingCard from "@/app/components/listings/ListingCard";
 import EmptyState from "@/app/components/EmptyState";
+import { Fragment } from "react"
 
 import getListings, { 
   IListingsParams
 } from "@/app/actions/getListings";
 import getCurrentUser from "@/app/actions/getCurrentUser";
-import ClientOnly from "./components/ClientOnly";
 
 interface HomeProps {
   searchParams: IListingsParams
@@ -18,14 +18,14 @@ const Home = async ({ searchParams }: HomeProps) => {
 
   if (listings.length === 0) {
     return (
-      <ClientOnly>
+      <Fragment>
         <EmptyState showReset />
-      </ClientOnly>
+      </Fragment>
     );
   }
 
   return (
-    <ClientOnly>
+    <Fragment>
       <Container>
         <div 
           className="
@@ -49,7 +49,7 @@ const Home = async ({ searchParams }: HomeProps) => {
           ))}
         </div>
       </Container>
-    </ClientOnly>
+    </Fragment>
   )
 }
 
