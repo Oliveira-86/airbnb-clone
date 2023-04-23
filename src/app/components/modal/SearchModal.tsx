@@ -8,6 +8,7 @@ import { formatISO } from 'date-fns'
 import { useRouter, useSearchParams } from 'next/navigation'
 
 import useSearchModal from "../../hook/useSearchModal"
+import Map from '../Map'
 
 import Modal from "./Modal"
 import Calendar from "../inputs/Calendar"
@@ -38,10 +39,6 @@ const SearchModal = () => {
   const router = useRouter()
   const searchModal = useSearchModal()
   const params = useSearchParams()
-
-  const Map = useMemo(() => dynamic(() => import('../Map'), { 
-    ssr: false 
-  }), [location])
 
   const onBack = useCallback(() => {
     setStep((value) => value - 1)

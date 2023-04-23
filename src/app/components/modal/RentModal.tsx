@@ -21,6 +21,7 @@ import Input from '../inputs/Input'
 import Heading from '../Heading'
 import CategoryInput from '../inputs/CategoryInput'
 import Counter from '../inputs/Counter'
+import Map from '../Map'
 
 enum STEPS {
   CATEGORY = 0,
@@ -67,11 +68,6 @@ const RentModal = () => {
   const roomCount = watch('roomCount')
   const bathroomCount = watch('bathroomCount')
   const imageSrc = watch('imageSrc')
-
-  const Map = useMemo(() => dynamic(() => import('../Map'), { 
-    ssr: false 
-  }), [location])
-
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
