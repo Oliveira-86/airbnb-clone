@@ -1,33 +1,28 @@
-import Container from "@/app/components/Container";
-import ListingCard from "@/app/components/listings/ListingCard";
-import EmptyState from "@/app/components/EmptyState";
-import { Fragment } from "react"
+import Container from "@/app/components/Container"
+import ListingCard from "@/app/components/listings/ListingCard"
+import EmptyState from "@/app/components/EmptyState"
 
 import getListings, { 
   IListingsParams
-} from "@/app/actions/getListings";
-import getCurrentUser from "@/app/actions/getCurrentUser";
+} from "@/app/actions/getListings"
+import getCurrentUser from "@/app/actions/getCurrentUser"
 
 interface HomeProps {
   searchParams: IListingsParams
-};
-
-export const dynamic='force-dynamic';
+}
 
 const Home = async ({ searchParams }: HomeProps) => {
-  const listings = await getListings(searchParams);
-  const currentUser = await getCurrentUser();
+  if (!searchParams) throw new Error
+  const listings = await getListings(searchParams)
+  const currentUser = await getCurrentUser()
 
   if (listings.length === 0) {
     return (
-      <Fragment>
         <EmptyState showReset />
-      </Fragment>
-    );
+    )
   }
 
   return (
-    <Fragment>
       <Container>
         <div 
           className="
@@ -51,8 +46,7 @@ const Home = async ({ searchParams }: HomeProps) => {
           ))}
         </div>
       </Container>
-    </Fragment>
   )
 }
 
-export default Home;
+export default Home

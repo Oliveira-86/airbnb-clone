@@ -34,7 +34,7 @@ const LoginModal = () => {
         email: '', 
         password: ''
       } 
-    });
+    })
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true)

@@ -32,7 +32,7 @@ const RegisterModal = () => {
         email: '', 
         password: ''
       } 
-    });
+    })
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true)

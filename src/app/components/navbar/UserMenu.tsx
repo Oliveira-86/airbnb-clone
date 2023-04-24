@@ -30,11 +30,11 @@ const UserMenu: FC<UserMenuProps> = ({ currentUser }) => {
 
   const onRent = useCallback(() => {
     if (!currentUser) {
-      return loginModal.onOpen();
+      return loginModal.onOpen()
     }
 
-    rentModal.onOpen();
-  }, [loginModal, rentModal, currentUser]);
+    rentModal.onOpen()
+  }, [loginModal, rentModal, currentUser])
 
   return (
     <div className='relative'>

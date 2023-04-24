@@ -1,7 +1,7 @@
-'use client';
+'use client'
 
-import { usePathname, useSearchParams } from 'next/navigation';
-import { TbBeach, TbMountain, TbPool } from 'react-icons/tb';
+import { usePathname, useSearchParams } from 'next/navigation'
+import { TbBeach, TbMountain, TbPool } from 'react-icons/tb'
 import { 
   GiBarn, 
   GiBoatFishing, 
@@ -11,14 +11,14 @@ import {
   GiForestCamp, 
   GiIsland,
   GiWindmill
-} from 'react-icons/gi';
-import { FaSkiing } from 'react-icons/fa';
-import { BsSnow } from 'react-icons/bs';
-import { IoDiamond } from 'react-icons/io5';
-import { MdOutlineVilla } from 'react-icons/md';
+} from 'react-icons/gi'
+import { FaSkiing } from 'react-icons/fa'
+import { BsSnow } from 'react-icons/bs'
+import { IoDiamond } from 'react-icons/io5'
+import { MdOutlineVilla } from 'react-icons/md'
 
-import CategoryBox from "../CategoryBox";
-import Container from '../Container';
+import CategoryBox from "../CategoryBox"
+import Container from '../Container'
 
 
 export const categories = [
@@ -100,13 +100,13 @@ export const categories = [
 ]
 
 const Categories = () => {
-  const params = useSearchParams();
-  const category = params?.get('category');
-  const pathname = usePathname();
-  const isMainPage = pathname === '/';
+  const params = useSearchParams()
+  const category = params?.get('category')
+  const pathname = usePathname()
+  const isMainPage = pathname === '/'
   
   if (!isMainPage) {
-    return null;
+    return null
   }
   
   return (
@@ -131,7 +131,7 @@ const Categories = () => {
         ))}
       </div>
     </Container>
-  );
+  )
 }
  
-export default Categories;
+export default Categories

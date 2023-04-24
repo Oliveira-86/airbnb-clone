@@ -1,18 +1,18 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from "next/server"
 
-import prisma from "@/app/libs/prismadb";
-import getCurrentUser from "@/app/actions/getCurrentUser";
+import prisma from "@/app/libs/prismadb"
+import getCurrentUser from "@/app/actions/getCurrentUser"
 
 export async function POST(
   request: Request, 
 ) {
-  const currentUser = await getCurrentUser();
+  const currentUser = await getCurrentUser()
 
   if (!currentUser) {
-    return NextResponse.error();
+    return NextResponse.error()
   }
 
-  const body = await request.json();
+  const body = await request.json()
   const { 
     title,
     description,
@@ -23,7 +23,7 @@ export async function POST(
     guestCount,
     location,
     price,
-   } = body;
+   } = body
 
   const listing = await prisma.listing.create({
     data: {
@@ -38,7 +38,7 @@ export async function POST(
       price: parseInt(price, 10),
       userId: currentUser.id
     } 
-  });
+  })
 
-  return NextResponse.json(listing);
+  return NextResponse.json(listing)
 }

@@ -1,30 +1,30 @@
-'use client';
+'use client'
 
-import dynamic from "next/dynamic";
-import { IconType } from "react-icons";
+import dynamic from "next/dynamic"
+import { IconType } from "react-icons"
 
-import useCountries from "../../hook/useCountries";
-import { SafeUser } from "@/app/types";
+import useCountries from "../../hook/useCountries"
+import { SafeUser } from "@/app/types"
 
-import Avatar from "../Avatar";
-import ListingCategory from "./ListingCategory";
+import Avatar from "../Avatar"
+import ListingCategory from "./ListingCategory"
 
 const Map = dynamic(() => import('../Map'), { 
   ssr: false 
-});
+})
 
 interface ListingInfoProps {
   user: SafeUser,
-  description: string;
-  guestCount: number;
-  roomCount: number;
-  bathroomCount: number;
+  description: string
+  guestCount: number
+  roomCount: number
+  bathroomCount: number
   category: {
     icon: IconType,
-    label: string;
-    description: string;
+    label: string
+    description: string
   } | undefined
-  locationValue: string;
+  locationValue: string
 }
 
 const ListingInfo: React.FC<ListingInfoProps> = ({
@@ -36,7 +36,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
   category,
   locationValue,
 }) => {
-  const { getByValue } = useCountries();
+  const { getByValue } = useCountries()
 
   const coordinates = getByValue(locationValue)?.latlng
 
@@ -92,7 +92,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
       <hr />
       <Map center={coordinates} />
     </div>
-   );
+   )
 }
  
-export default ListingInfo;
+export default ListingInfo
