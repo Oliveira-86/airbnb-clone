@@ -3,6 +3,9 @@
 #### Airbnb clone is a full-stack app powered by Next.js, Prisma, MongoDB, and Typescript. In it, we can add your property, and book a trip that does not coincide with the dates already scheduled. We use the next/auth library itself for authentication with email and Google and GitHub providers, all integrated into a backend built with Prisma in the Next.js project connected to the MongoDB database.
 
 
+## [Linkedin post](https://www.linkedin.com/feed/update/urn:li:activity:7056263392193372160/)
+
+
 
 ### Home Screen
 
